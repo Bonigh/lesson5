@@ -15,14 +15,14 @@ jobs:
     steps:
         - name: test null
           if: (env.aNull == null)
-          run: echo This variale is null
+          run: echo this variale is null
         - name: test boolean
-          if: ${{ fromJSON(env.aBolean}}
-          run: echo job won't as the variable is false
+          if: ${{ fromJSON(env.aBoolean}}
+          run: echo this job won't as the variable is false
         - name: contains function
-          if: ${{contains(env.aString,'this')}}
+          if: ${{ contains(env.aString,'this')}}
           run:  |
-            echo "The variable contains the word this"
+            echo "our string var contains the word this"
             echos "Here is a typo that will make this step fail"
         - name: test status check and format function
           if: ${{failure()}}
