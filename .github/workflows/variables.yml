@@ -8,10 +8,10 @@ jobs:
     name: job to test expressions
     runs-on: ubuntu-latest
     env:
-      aBoolean: ${{false}}
-      aNull: ${{null}}
-      aNumber: ${{42}}
-      aString: this is a strin
+      aBoolean: ${{ false }}
+      aNull: ${{ null }}
+      aNumber: ${{ 42 }}
+      aString: this is a string
     steps:
         - name: test null
           if: (env.aNull == null)
@@ -21,7 +21,7 @@ jobs:
           run: echo this job won't run as the variable is false
         - name: contains function
           if: ${{ contains(env.aString,'this')}}
-          run:  |
+          run: |
             echo "our string var contains the word this"
             echos "Here is a typo that will make this step fail"
         - name: test status check and format function
