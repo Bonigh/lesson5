@@ -25,18 +25,18 @@ jobs:
             echo "our string var contains the word this"
             echos "Here is a typo that will make this step fail"
         - name: test status check and format function
-          if: ${{failure()}}
+          if: ${{ failure() }}
           env:
             FORMAT_VAR: ${{ format('Github {0} {1} {2}', 'actions', 'is', 'awesome!')}}
             run: |
-              echo "This step runs a special script to clean up after failure"
+              echo "this step runs a special script to clean up after failure"
               echo ${{ env.FORMAT_VAR }}
         - name: function and always status check
           if: ${{ startsWith(env.aString, 'this') && always()}}
           run: sleep 60
         - name: test cancel status check
           if: ${{cancelled}}
-          run: echo "This job runs if a workflow is cancelled, it can also be used to clean-up scripts"
+          run: echo "this job runs if a workflow is cancelled, it can also be used to clean-up scripts"
   test_variables:
     if: (github.event_name == 'pull_request')
     env: 
