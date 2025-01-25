@@ -35,8 +35,8 @@ jobs:
           if: ${{ startsWith(env.aString, 'this') && always()}}
           run: sleep 60
         - name: test cancel status check
-          if: ${{ cancelled }}
-          run: echo "This job runs if a workflow is cancelled, it can be used to clean-up scripts"
+          if: ${{cancelled}}
+          run: echo "This job runs if a workflow is cancelled, it can also be used to clean-up scripts"
   test_variables:
     if: (github.event_name == 'pull request')
     env: 
