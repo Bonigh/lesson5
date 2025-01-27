@@ -6,7 +6,7 @@ on:
 jobs:
 
   test_variables:
-    if: (github.event_name == 'pull_request')
+   
     env: 
       JOB_VAR: "Job level variable"
     name: job to test variables
